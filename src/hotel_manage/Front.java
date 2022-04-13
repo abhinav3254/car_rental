@@ -6,11 +6,14 @@ import java.sql.Connection;
 
 public class Front {
     static Connection connection;
+
+    public Front () {
+        connection = ConnectionSetUp.setConnection();
+    }
     
     public static void main(String[] args) throws Exception{
+        Front front = new Front();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        connection = ConnectionSetUp.setConnection();
-
         while(true) {
             System.out.println("Enter 1 for add new order");
             System.out.println("Enter 2 to delete order");
