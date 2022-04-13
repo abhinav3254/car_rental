@@ -39,6 +39,14 @@ public class Front {
                 int id = Integer.parseInt(br.readLine());
                 DeleteOrders.deleteOrder(id, connection);
             }
+
+            if(choice.equals("3")) {
+                System.out.println("Enter id");
+                int id = Integer.parseInt(br.readLine());
+                System.out.println("Enter Name");
+                String name = br.readLine();
+                UpdateOrder.updateOrder(id, name, connection);
+            }
         }
     }
 }
