@@ -33,6 +33,12 @@ public class Front {
             if (choice.equals("4")) {
                 ShowOrders.showData(connection);
             }
+
+            if(choice.equals("2")) {
+                System.out.println("Enter the id to delete");
+                int id = Integer.parseInt(br.readLine());
+                DeleteOrders.deleteOrder(id, connection);
+            }
         }
     }
 }
