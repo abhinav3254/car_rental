@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Service
 public class VehicleService {
@@ -62,7 +63,7 @@ public class VehicleService {
         entity.setFuelType(dto.getFuelType());
         entity.setTransmissionType(dto.getTransmissionType());
         entity.setAverageMileage(dto.getAverageMileage());
-        entity.setYearOfManufacture(dto.getYearOfManufacture());
+        entity.setYearOfManufacture(Integer.parseInt(dto.getYearOfManufacture().substring(0,4)));
         try {
             if (dto.getRegistrationDate() != null) {
                 entity.setRegistrationDate(dateFormat.parse(dto.getRegistrationDate()));
@@ -73,6 +74,8 @@ public class VehicleService {
         } catch (ParseException e) {
             throw new IllegalArgumentException("Invalid date format", e);
         }
+        entity.setCreatedDate(new Date());
+        entity.setCreatedBy("SYSTEM");
         return entity;
     }
 
@@ -238,7 +241,7 @@ public class VehicleService {
         existingType.setFuelType(vehicleTypeDTO.getFuelType());
         existingType.setTransmissionType(vehicleTypeDTO.getTransmissionType());
         existingType.setAverageMileage(vehicleTypeDTO.getAverageMileage());
-        existingType.setYearOfManufacture(vehicleTypeDTO.getYearOfManufacture());
+        existingType.setYearOfManufacture(Integer.parseInt(vehicleTypeDTO.getYearOfManufacture().substring(0,4)));
         try {
             if (vehicleTypeDTO.getRegistrationDate() != null) {
                 existingType.setRegistrationDate(dateFormat.parse(vehicleTypeDTO.getRegistrationDate()));

@@ -19,7 +19,7 @@ public class VehicleTypeDTO {
 
     private Float averageMileage;
 
-    private Integer yearOfManufacture;
+    private String yearOfManufacture;
 
     private String registrationDate;
 
