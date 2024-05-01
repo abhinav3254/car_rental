@@ -83,6 +83,7 @@ public class AuthService {
         profileDTO.setName(user.getName());
         profileDTO.setEmail(user.getEmail());
         profileDTO.setPhone(user.getPhone());
+        profileDTO.setAddress(user.getAddress());
         profileDTO.setGender(user.getGender());
         profileDTO.setOccupation(user.getOccupation());
         profileDTO.setProfilePhoto(encodeImage(user.getProfilePhoto()));
